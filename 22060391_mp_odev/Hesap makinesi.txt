@@ -1,0 +1,27 @@
+import 'dart:io';
+
+void main() {
+  print('birinci sayiyi giriniz');
+  String? birinciGirdi = stdin.readLineSync();
+  var sayi1 = double.parse(birinciGirdi!);
+  print('yapmak istediginiz islemi seciniz');
+  String? islem = stdin.readLineSync();
+  print('ikinci sayiyi giriniz');
+  String? ikinciGirdi = stdin.readLineSync();
+  var sayi2 = double.parse(ikinciGirdi!);
+
+  if (islem == '+') {
+    var sonuc = sayi1 + sayi2;
+    print('islemin sonucu : $sonuc');
+  } else if (islem == '-') {
+    var sonuc = sayi1 - sayi2;
+    print('islemin sonucu : $sonuc');
+  } else if (islem == '*') {
+    var sonuc = sayi1 * sayi2;
+    print('islemin sonucu : $sonuc');
+  } else if (islem == '/' && sayi2 != 0) {
+    var sonuc = sayi1 / sayi2;
+    print('islemin sonucu : $sonuc');
+  } else
+    print('gecersiz bir islem yaptınız lutfen tekrar deneyin');
+}

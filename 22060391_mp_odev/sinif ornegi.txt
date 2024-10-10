@@ -1,0 +1,44 @@
+import 'dart:io';
+
+void main(){
+  print('ogrencinin ismini giriniz');
+  String? isim = stdin.readLineSync();
+  
+  print('ogrencinin soyismini giriniz');
+  String? soyisim = stdin.readLineSync();
+
+  Ogrenci ogrenci = Ogrenci(isim!, soyisim!);
+
+  ogrenci.notEkle();
+
+  ogrenci.ortalaHesapla();
+}
+
+class Ogrenci {
+  String isim;
+  String soyisim;
+  List<int> notlar = [];
+ 
+  Ogrenci(this.isim, this.soyisim);
+
+  void notEkle(){
+    print('kac tane not eklemek istiyorsunuz');
+    String? adetgirdi = stdin.readLineSync();
+    int adet = int.parse(adetgirdi!);
+    for(int a = 0; a < adet ; a++){
+      print('${a+1}.notu giriniz');
+      String? sayiGirdisi = stdin.readLineSync();
+      int sayi = int.parse(sayiGirdisi!);
+      notlar.add(sayi);
+    }
+  }
+  void ortalaHesapla(){
+    print('ortalama hesaplanıyor');
+    int toplam = 0;
+    for(int i=0; i<notlar.length; i++){
+      toplam += notlar[i];
+    }
+    double ortalama = toplam / notlar.length;
+    print('ortalama :$ortalama');
+  }
+}

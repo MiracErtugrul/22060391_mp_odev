@@ -1,0 +1,21 @@
+import 'dart:io';
+
+void main(){
+  List<dynamic> sayilar = [];
+  List<dynamic> csayilar = [];
+  for(int i = 0; i < 10; i++){
+    print('${i+1}. sayiyi giriniz');
+    String? girdi = stdin.readLineSync();
+    int sayi = int.parse(girdi!);
+    sayilar.add(sayi);
+  }
+  for(int a=0;a < sayilar.length;a++){
+    if(sayilar[a]%2 == 0){
+      csayilar.add(sayilar[a]);
+    }
+  }
+  if(csayilar.length==0){
+    print('listede cift sayi yok');
+  }else
+    print(csayilar);
+}
